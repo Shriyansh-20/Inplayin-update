@@ -1,0 +1,266 @@
+/------------ Authentication API ------------/
+
+1. authenticate {
+    Type: POST
+    URL: https://investaprop.com/api/authenticate
+    Request Body:{
+        username: String,
+        password: String
+    }
+    Response Body:{
+        access_token: String,
+        refresh_token: String
+    }
+}
+
+2. refresh {
+    Type: POST
+    URL: https://investaprop.com/api/refresh
+    Request Body:{
+        refresh_token: String
+    }
+    Response Body:{
+        access_token: String
+    }
+}
+
+/------------ Property Management API ------------/
+
+3. Properties
+Type: GET
+URL: https://investaprop.com/api/properties
+Request Body: {}
+Response Body:
+{
+  "properties": [
+    {
+      "property_id": "String",
+      "location": "String",
+      "type": "String",
+      "price": "String",
+      "target_IRR": "String",
+      "rental_yield": "String"
+    }
+  ]
+}
+
+4. Add Property
+Type: POST
+URL: https://investaprop.com/api/add-property
+Request Body:
+{
+  "location": "String",
+  "type": "String",
+  "price": "String",
+  "target_IRR": "String",
+  "rental_yield": "String"
+}
+Response Body:
+{
+  "property_id": "String",
+  "location": "String",
+  "type": "String",
+  "price": "String",
+  "target_IRR": "String",
+  "rental_yield": "String"
+}
+
+5. Manage Transactions
+Type: GET
+URL: https://investaprop.com/api/manage-transactions
+Request Body:{
+    "uid_user": String
+}
+Response Body: {
+    "transactions": [
+        {
+            "property_name": String,
+            "location": {
+                "name": String
+            },
+            "Transaction_amount": int
+        }
+    ]
+}
+
+6. Manage Owned Property
+Type: GET
+URL: https://investaprop.com/api/manage-owned-property
+Request Body:{
+    "uid_user": String
+}
+Response Body: {
+    "owned_properties": [
+        {
+            "property_id": "String",
+            "property_name": "String",
+            "location": {
+                "name": "String",
+                "longitude": float,
+                "latitude": float
+            },
+            "image_url": "String",
+            "is_available": bool,
+            "area": int,
+            "asset_value": int,
+            "current_value": int,
+            "total_earnings": int
+        }
+    ]
+}
+
+/------------ Investment Options API ------------/
+
+7. Investment Options
+Type: GET
+URL: https://investaprop.com/api/investment-options
+Request Body: {}
+Response Body:
+{
+  "options": [
+    {
+      "option_id": "String",
+      "option_name": "String",
+      "details": "String"
+    }
+  ]
+}
+
+8. Recent Opportunities
+Type: GET
+URL: https://investaprop.com/api/recent-opportunities
+Request Body: {}
+Response Body:
+{
+  "opportunities": [
+    {
+      "opportunity_id": "String",
+      "title": "String",
+      "description": "String",
+      "location": "String",
+      "target_IRR": "String",
+      "rental_yield": "String"
+    }
+  ]
+}
+
+/------------ User Engagement API ------------/
+
+9. User Guide
+Type: GET
+URL: https://investaprop.com/api/user-guide
+Request Body: {}
+Response Body:
+{
+  "guide": "String"
+}
+
+10. Style Guide
+Type: GET
+URL: https://investaprop.com/api/style-guide
+Request Body: {}
+Response Body:
+{
+  "style_guide": "String"
+}
+
+11. Menu Customization
+Type: GET
+URL: https://investaprop.com/api/menu-customization
+Request Body: {}
+Response Body:
+{
+  "menu_customization": "String"
+}
+
+12. Licenses
+Type: GET
+URL: https://investaprop.com/api/licenses
+Request Body: {}
+Response Body:
+{
+  "licenses": "String"
+}
+
+13. Changelog
+Type: GET
+URL: https://investaprop.com/api/changelog
+Request Body: {}
+Response Body:
+{
+  "changelog": "String"
+}
+
+/------------ FAQs and Blog Posts------------/
+
+
+14. FAQs
+Type: GET
+URL: https://investaprop.com/api/faqs
+Request Body: {}
+Response Body:
+{
+  "faqs": [
+    {
+      "faq_id": "String",
+      "question": "String",
+      "answer": "String"
+    }
+  ]
+}
+
+15. Blog Posts
+Type: GET
+URL: https://investaprop.com/api/blog-posts
+Request Body: {}
+Response Body:
+{
+  "posts": [
+    {
+      "post_id": "String",
+      "title": "String",
+      "content": "String",
+      "date_published": "String"
+    }
+  ]
+}
+
+/------------ E-books------------/
+
+16. E-Books
+Type: GET
+URL: https://investaprop.com/api/e-books
+Request Body: {}
+Response Body:
+{
+  "books": [
+    {
+      "book_id": "String",
+      "title": "String",
+      "content": "String",
+      "date_published": "String"
+    }
+  ]
+}
+
+/------------ Transaction API ------------/
+
+17. Transaction
+Type: GET
+URL: https://investaprop.com/api/transactions
+Request Body: {
+    "Uid": String
+}
+Response Body: {
+    "transactions": [
+        {
+            "Transaction_id": "String",
+            "Date": "String",
+            "Property_name": "String",
+            "property_location": "String",
+            "Amount": "String",
+            "Transaction_type": "String" // credit or debit
+        }
+    ]
+}
+
